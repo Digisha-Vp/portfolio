@@ -11,13 +11,14 @@
 <link rel="stylesheet" href="assets/css/clodoc.css">
 </head>
 <body>
+<div class="reading-progress-bar" id="readingProgress" aria-hidden="true"></div>
 <div class="in">
 <header class="top">
   <a class="brand" href="index.html" aria-label="Home">Dvp</a>
   <nav><ul><li><a href="index.html" aria-current="page">Work</a></li><li><a href="about.html">About</a></li><li><a href="#">Resume</a></li></ul></nav>
 </header>
 
-<div class="stack intro">
+<div class="stack intro" id="intro">
   <img class="hero" src="assets/images/clodoc/img1.webp" alt="Illustration of doctors, a patient, and healthcare workers">
   <div class="stack" style="gap:40px">
     <h1>Clodoc</h1>
@@ -35,7 +36,7 @@
 </div>
 </div>
 
-<section class="band" style="margin-top:var(--gap)"><div class="in">
+<section class="band" id="overview" style="margin-top:var(--gap)"><div class="in">
   <div class="ov"><h2>Overview of Clodoc</h2>
     <div class="txt muted"><p>Clodoc is a healthcare platform connecting doctors, patients, and pharmacies — and the people around them who keep care running.</p>
     <p>It didn't start with a feature list. It started with conversations: with doctors between patients, by observing pharmacy operations, with real people in our neighbourhood, watched and understood up close.</p>
@@ -43,7 +44,7 @@
   <p class="quote">Built to fit how care actually happens, not to force doctors and patients into a workflow that's easier to code than to live with.</p>
 </div></section>
 
-<section class="in sec" style="padding-top:var(--gap)">
+<section class="in sec" id="role" style="padding-top:var(--gap)">
   <header><h2>My Role</h2><p class="muted">Working under the mentorship of our lead designer, my part in Clodoc has grown from understanding the problem to owning a module end-to-end.</p></header>
   <hr class="l">
   <ol class="tl">
@@ -54,7 +55,7 @@
   </ol>
 </section>
 
-<section class="band" style="margin-top:var(--gap)"><div class="in sec">
+<section class="band" id="contributions" style="margin-top:var(--gap)"><div class="in sec">
   <header><h2>My contributions</h2><p class="muted">What I can share about the work itself, without breaching what's under NDA.</p></header>
   <div class="cards">
     <article class="card"><span class="tag">Research</span><h3>Grounding the pharmacy module in real operations</h3>
@@ -74,7 +75,7 @@
   </div>
 </div></section>
 
-<section class="in" style="padding-top:var(--gap)">
+<section class="in" id="learnings" style="padding-top:var(--gap)">
   <h2>What I've learned — and I'm still learning</h2>
   <div class="learn">
     <div><h3>Nothing starts out perfect</h3><p class="muted">The goal is to get something out and test it, not get it flawless on the first try.</p></div>
@@ -84,11 +85,45 @@
     <div><h3>Don't take feedback personally</h3><p class="muted">And don't fall in love with your first idea — stay open to it changing.</p></div>
     <div><h3>Ask more questions than feel necessary</h3><p class="muted">The obvious ones are usually worth asking anyway.</p></div>
   </div>
-  <nav class="pn" aria-label="Project navigation">
-    <a href="index.html"><svg width="13" height="10" viewBox="0 0 13 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5H1M5 1 1 5l4 4"/></svg>Back</a>
-    <a href="takenright.html">Next project<svg width="13" height="10" viewBox="0 0 13 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h11M8 1l4 4-4 4"/></svg></a>
-  </nav>
+  <section class="next-portal" id="next-project" aria-label="Next Case Study">
+    <div class="next-portal-meta">
+      <span class="next-portal-tag">Up Next · Case Study</span>
+      <a class="next-portal-back" href="index.html#work">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7H2M7 12l-5-5 5-5"/></svg>
+        All Projects
+      </a>
+    </div>
+    <a class="next-portal-card takenright-card" href="takenright.html">
+      <div class="next-portal-inner">
+        <div class="next-portal-info">
+          <p class="next-portal-eyebrow">Independent Project</p>
+          <h2 class="next-portal-title">Making medication trust easier for parents, families, and pharmacists</h2>
+          <p class="next-portal-desc">A medication companion that helps elders confirm what they've taken, resolve everyday doubts, and stay independent.</p>
+          <div class="next-portal-btn">
+            <span>Read Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </div>
+        </div>
+        <div class="next-portal-visual">
+          <img src="assets/images/index/img3.webp" alt="TakenRight medication management screens preview" loading="lazy">
+        </div>
+      </div>
+    </a>
+  </section>
 </section>
+
+<nav class="chapter-nav-wrap" id="chapterNav" aria-label="Case study chapters">
+  <div class="chapter-nav">
+    <a href="#intro" class="chapter-btn active" data-target="intro" aria-current="true">Intro</a>
+    <a href="#overview" class="chapter-btn" data-target="overview">Overview</a>
+    <a href="#role" class="chapter-btn" data-target="role">Role</a>
+    <a href="#contributions" class="chapter-btn" data-target="contributions">Contributions</a>
+    <a href="#learnings" class="chapter-btn" data-target="learnings">Learnings</a>
+    <a href="#next-project" class="chapter-btn" data-target="next-project">Next Project</a>
+  </div>
+</nav>
+
+<script src="assets/js/case-study.js" defer></script>
 <script src="assets/js/easter-egg.js" defer></script>
 <!--
   Hey curious developer! 🕵️‍♀️

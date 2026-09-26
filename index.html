@@ -26,30 +26,57 @@
     <div class="hero-copy">
       <h1>Hi, I'm Digisha.</h1>
       <p>UXUI designer currently working on making complex healthcare experiences simpler, clearer, and more human.</p>
+      <a class="scroll-cue" href="#work" id="scrollCue" aria-label="Explore featured work">
+        <span class="scroll-cue-dot"></span>
+        <span class="scroll-cue-text">Explore work</span>
+        <svg class="scroll-cue-arrow" width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6.5 1.5v10M2 7.5l4.5 4.5 4.5-4.5"/>
+        </svg>
+      </a>
     </div>
   </section>
 
-  <main class="work" id="work">
-    <a class="tile t1" href="clodoc.html">
-      <img class="shot" src="assets/images/index/img2.webp" alt="Clodoc patient app and doctor dashboard on phone and laptop">
+  <main class="work" id="work" aria-label="Featured Work">
+    <div class="work-header">
+      <span class="work-label">Selected Projects</span>
+      <span class="work-counter" aria-live="polite"><span class="work-active-idx" id="activeWorkIdx">01</span> / 03</span>
+    </div>
+
+    <a class="tile t1" href="clodoc.html" data-index="1" aria-label="Clodoc Case Study">
+      <div class="shot-wrap">
+        <img class="shot" src="assets/images/index/img2.webp" alt="Clodoc patient app and doctor dashboard on phone and laptop">
+      </div>
       <div class="info">
-        <p class="eyebrow">Clodoc</p>
+        <div class="info-top">
+          <p class="eyebrow">Clodoc</p>
+          <span class="card-action">View Case Study <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M3.5 2.5h6v6"/></svg></span>
+        </div>
         <h2>Making healthcare simpler, more accessible, and more valuable for everyone.</h2>
         <p class="meta">Product design · UX research · Since 2025</p>
       </div>
     </a>
-    <a class="tile t2" href="takenright.html">
-      <img class="shot" src="assets/images/index/img3.webp" alt="Medication app screens for parents, families, and pharmacists">
+    <a class="tile t2" href="takenright.html" data-index="2" aria-label="TakenRight Case Study">
+      <div class="shot-wrap">
+        <img class="shot" src="assets/images/index/img3.webp" alt="Medication app screens for parents, families, and pharmacists">
+      </div>
       <div class="info">
-        <p class="eyebrow">Independent project</p>
+        <div class="info-top">
+          <p class="eyebrow">Independent project</p>
+          <span class="card-action">View Case Study <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M3.5 2.5h6v6"/></svg></span>
+        </div>
         <h2>Making medication trust easier for parents, families, and pharmacists</h2>
         <p class="meta">Side project · Product design · Ongoing</p>
       </div>
     </a>
-    <a class="tile t3" href="https://www.behance.net/gallery/248913789/DoorCare-Home-Healthcare-UX-Case-Study" target="_blank" rel="noopener">
-      <img class="shot" src="assets/images/index/img4.webp" alt="Home healthcare app screens">
+    <a class="tile t3" href="https://www.behance.net/gallery/248913789/DoorCare-Home-Healthcare-UX-Case-Study" target="_blank" rel="noopener" data-index="3" aria-label="DoorCare Case Study on Behance">
+      <div class="shot-wrap">
+        <img class="shot" src="assets/images/index/img4.webp" alt="Home healthcare app screens">
+      </div>
       <div class="info">
-        <p class="eyebrow">End-to-end case study</p>
+        <div class="info-top">
+          <p class="eyebrow">End-to-end case study</p>
+          <span class="card-action">View on Behance <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M3.5 2.5h6v6"/></svg></span>
+        </div>
         <h2>Creating a simpler, more dignified experience for home healthcare</h2>
         <p class="meta">Case study · Student project · 2024</p>
       </div>
