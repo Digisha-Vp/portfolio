@@ -1,0 +1,1 @@
+document.querySelectorAll('.mt').forEach(function(t){var a=t.firstElementChild,c=a.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('img').forEach(function(i){i.alt=''});t.appendChild(c);t.classList.add('on')})
