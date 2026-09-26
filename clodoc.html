@@ -9,6 +9,230 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Marcellus+SC&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/clodoc.css">
+<meta name="view-transition" content="same-origin">
+<style>
+/* ── Animated Hero Illustration ──────────────────────────────── */
+.hero-scene {
+  width: 100%;
+  aspect-ratio: 940 / 533;
+  background: linear-gradient(160deg, #E8F4F8 0%, #F0EBF8 50%, #EAF2EC 100%);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+  box-shadow: 0 14px 38px rgba(29,29,31,.07);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.hero-scene .scene-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: bg-pop 1s ease forwards;
+}
+.hero-scene .c1 { width: 340px; height: 340px; background: rgba(78,62,175,.06); top: -60px; left: -80px; animation-delay: .1s; }
+.hero-scene .c2 { width: 260px; height: 260px; background: rgba(32,123,25,.06); top: -40px; right: -60px; animation-delay: .2s; }
+.hero-scene .c3 { width: 200px; height: 200px; background: rgba(57,79,186,.05); bottom: -40px; right: 20%; animation-delay: .3s; }
+@keyframes bg-pop { to { opacity: 1; } }
+
+.persona-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 60px);
+  padding: clamp(20px, 4vw, 48px) clamp(16px, 3vw, 40px);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.persona {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: persona-rise .7s cubic-bezier(.16,1,.3,1) forwards;
+}
+.persona:nth-child(1) { animation-delay: .15s; }
+.persona:nth-child(2) { animation-delay: .3s; }
+.persona:nth-child(3) { animation-delay: .45s; }
+.persona:nth-child(4) { animation-delay: .6s; }
+@keyframes persona-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+.persona-float {
+  animation: float-idle 4s ease-in-out infinite;
+}
+.persona:nth-child(1) .persona-float { animation-delay: 0s; }
+.persona:nth-child(2) .persona-float { animation-delay: .8s; }
+.persona:nth-child(3) .persona-float { animation-delay: 1.6s; }
+.persona:nth-child(4) .persona-float { animation-delay: 2.4s; }
+@keyframes float-idle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.persona-label {
+  font-family: var(--sans);
+  font-size: clamp(10px, 1.2vw, 13px);
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 4px 12px;
+  border: 1px solid rgba(29,29,31,.1);
+  white-space: nowrap;
+}
+
+/* Connection line between personas */
+.scene-connections {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.scene-connections line {
+  stroke: rgba(78,62,175,.18);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+  stroke-dashoffset: 100;
+  animation: dash-flow 12s linear infinite;
+}
+.scene-connections line:nth-child(2) { animation-delay: -4s; }
+.scene-connections line:nth-child(3) { animation-delay: -8s; }
+@keyframes dash-flow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ── Animated Tracker Flow (img2) ────────────────────────────── */
+.tracker-anim {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(78,62,175,.2) transparent;
+}
+.tracker-anim::-webkit-scrollbar { height: 4px; }
+.tracker-anim::-webkit-scrollbar-track { background: transparent; }
+.tracker-anim::-webkit-scrollbar-thumb { background: rgba(78,62,175,.2); border-radius: 4px; }
+.tracker-svg-wrap {
+  min-width: 620px;
+  width: 100%;
+  max-width: 860px;
+}
+.tracker-node rect {
+  rx: 10;
+  fill: #DDEEFF;
+  stroke: transparent;
+  stroke-width: 2;
+  transition: fill .3s, stroke .3s;
+}
+.tracker-node.active rect { fill: #C8DEFF; stroke: #4E3EAF; }
+.tracker-node text {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  fill: #1D1D1F;
+  font-weight: 600;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+.tracker-arrow {
+  fill: none;
+  stroke: #ACA494;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url(#arr);
+}
+.tracker-path-reveal {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  opacity: 0;
+  transition: stroke-dashoffset .5s ease, opacity .3s ease;
+}
+.tracker-node-reveal {
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.tracker-animated .tracker-path-reveal,
+.tracker-animated .tracker-node-reveal {
+  opacity: 1;
+  stroke-dashoffset: 0;
+}
+
+/* ── Animated Rx Flow (img3) ──────────────────────────────────── */
+.rx-flow-wrap {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(78,62,175,.2) transparent;
+}
+.rx-flow-wrap::-webkit-scrollbar { height: 4px; }
+.rx-flow-wrap::-webkit-scrollbar-thumb { background: rgba(78,62,175,.2); border-radius: 4px; }
+.rx-flow-svg {
+  min-width: 380px;
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+}
+.rx-node rect {
+  fill: #DDEEFF;
+  stroke: transparent;
+  stroke-width: 2;
+  transition: fill .3s, stroke .3s;
+}
+.rx-node.active rect { fill: #C8DEFF; stroke: #4E3EAF; }
+.rx-node text {
+  font-family: var(--sans);
+  font-size: 12px;
+  fill: #1D1D1F;
+  font-weight: 600;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+.rx-path {
+  fill: none;
+  stroke: #ACA494;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url(#rx-arr);
+}
+.rx-path-reveal {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  opacity: 0;
+  transition: stroke-dashoffset .45s ease, opacity .3s ease;
+}
+.rx-node-reveal {
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.rx-animated .rx-path-reveal,
+.rx-animated .rx-node-reveal {
+  opacity: 1;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .persona, .persona-float {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .tracker-path-reveal, .tracker-node-reveal,
+  .rx-path-reveal, .rx-node-reveal {
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+  .scene-connections line { animation: none; }
+}
+</style>
 </head>
 <body>
 <div class="reading-progress-bar" id="readingProgress" aria-hidden="true"></div>
@@ -19,15 +243,186 @@
 </header>
 
 <div class="stack intro" id="intro">
-  <img class="hero" src="assets/images/clodoc/img1.webp" alt="Illustration of doctors, a patient, and healthcare workers">
+  <!-- Animated hero scene replacing img1.webp -->
+  <div class="hero hero-scene" role="img" aria-label="Illustration of a doctor, patient, pharmacist and healthcare worker connected by Clodoc">
+    <!-- Ambient background shapes -->
+    <div class="scene-bg-circle c1"></div>
+    <div class="scene-bg-circle c2"></div>
+    <div class="scene-bg-circle c3"></div>
+    <!-- Dashed connection lines -->
+    <svg class="scene-connections" viewBox="0 0 940 533" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <line x1="190" y1="320" x2="370" y2="340"/>
+      <line x1="580" y1="330" x2="760" y2="310"/>
+      <line x1="375" y1="335" x2="575" y2="335"/>
+    </svg>
+    <!-- Persona figures -->
+    <div class="persona-group">
+      <!-- Doctor (female, teal scrubs) -->
+      <div class="persona">
+        <div class="persona-float">
+          <svg width="clamp(80px,10vw,120px)" viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- lab coat -->
+            <rect x="25" y="95" width="70" height="110" rx="14" fill="#F0F4FF"/>
+            <!-- scrubs -->
+            <rect x="35" y="95" width="50" height="70" rx="4" fill="#4FC3C3"/>
+            <!-- collar -->
+            <path d="M52 95 L60 115 L68 95" fill="#E8F0FF" stroke="#CBD5E1" stroke-width="1"/>
+            <!-- head -->
+            <circle cx="60" cy="62" r="28" fill="#F4C5A0"/>
+            <!-- hair -->
+            <path d="M33 58 Q36 28 60 28 Q84 28 88 56 Q88 45 82 42 Q72 22 60 22 Q48 22 38 42 Q32 46 33 58Z" fill="#5C3D1E"/>
+            <!-- hair waves -->
+            <path d="M34 72 Q26 85 30 100" stroke="#5C3D1E" stroke-width="6" stroke-linecap="round" fill="none"/>
+            <path d="M86 72 Q94 85 90 100" stroke="#5C3D1E" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <!-- eyes -->
+            <circle cx="51" cy="63" r="3" fill="#3D2B1F"/>
+            <circle cx="69" cy="63" r="3" fill="#3D2B1F"/>
+            <!-- blush -->
+            <ellipse cx="46" cy="72" rx="6" ry="4" fill="#F4A0A0" opacity=".45"/>
+            <ellipse cx="74" cy="72" rx="6" ry="4" fill="#F4A0A0" opacity=".45"/>
+            <!-- smile -->
+            <path d="M52 76 Q60 82 68 76" stroke="#C07050" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- stethoscope -->
+            <path d="M45 100 Q35 110 35 125 Q35 140 48 142 Q62 144 64 130" stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="64" cy="128" r="5" stroke="#2D2D2D" stroke-width="2" fill="none"/>
+            <!-- pocket pen -->
+            <rect x="78" y="100" width="4" height="14" rx="2" fill="#4E3EAF"/>
+            <!-- legs -->
+            <rect x="40" y="165" width="18" height="45" rx="8" fill="#4FC3C3"/>
+            <rect x="62" y="165" width="18" height="45" rx="8" fill="#4FC3C3"/>
+          </svg>
+        </div>
+        <span class="persona-label">Doctor</span>
+      </div>
+      <!-- Patient (elderly woman, orange cardigan) -->
+      <div class="persona">
+        <div class="persona-float">
+          <svg width="clamp(72px,9vw,108px)" viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- cardigan -->
+            <rect x="28" y="95" width="64" height="105" rx="14" fill="#E87040"/>
+            <!-- buttons -->
+            <circle cx="60" cy="115" r="3" fill="#C05020"/>
+            <circle cx="60" cy="128" r="3" fill="#C05020"/>
+            <circle cx="60" cy="141" r="3" fill="#C05020"/>
+            <!-- undershirt -->
+            <rect x="44" y="95" width="32" height="22" rx="4" fill="#FAE8D8"/>
+            <!-- head -->
+            <circle cx="60" cy="65" r="26" fill="#D4A882"/>
+            <!-- grey hair -->
+            <path d="M35 62 Q38 35 60 32 Q82 35 85 62 Q85 48 78 40 Q70 22 60 22 Q50 22 42 40 Q35 48 35 62Z" fill="#B0A8A0"/>
+            <path d="M35 70 Q30 80 34 94" stroke="#B0A8A0" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M85 70 Q90 80 86 94" stroke="#B0A8A0" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <!-- wrinkle lines -->
+            <path d="M48 68 Q52 65 56 68" stroke="#C09070" stroke-width="1" fill="none"/>
+            <path d="M64 68 Q68 65 72 68" stroke="#C09070" stroke-width="1" fill="none"/>
+            <!-- eyes -->
+            <circle cx="50" cy="64" r="2.5" fill="#4A3020"/>
+            <circle cx="70" cy="64" r="2.5" fill="#4A3020"/>
+            <!-- blush -->
+            <ellipse cx="44" cy="73" rx="5" ry="3.5" fill="#D4887080" opacity=".5"/>
+            <ellipse cx="76" cy="73" rx="5" ry="3.5" fill="#D4887080" opacity=".5"/>
+            <!-- gentle smile -->
+            <path d="M51 78 Q60 83 69 78" stroke="#A06040" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- bag strap -->
+            <path d="M28 115 L20 175" stroke="#3A5080" stroke-width="4" stroke-linecap="round"/>
+            <!-- bag -->
+            <rect x="10" y="165" width="32" height="28" rx="6" fill="#3A5080"/>
+            <!-- legs / skirt -->
+            <rect x="38" y="165" width="18" height="45" rx="8" fill="#3A5070"/>
+            <rect x="60" y="165" width="18" height="45" rx="8" fill="#3A5070"/>
+          </svg>
+        </div>
+        <span class="persona-label">Patient</span>
+      </div>
+      <!-- Pharmacist (white coat, holding bottle) -->
+      <div class="persona">
+        <div class="persona-float">
+          <svg width="clamp(80px,10vw,120px)" viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- lab coat -->
+            <rect x="24" y="95" width="72" height="115" rx="14" fill="#F0F4FF"/>
+            <!-- shirt -->
+            <rect x="36" y="95" width="48" height="26" rx="4" fill="#5B8DD9"/>
+            <!-- collar v -->
+            <path d="M50 95 L60 112 L70 95" fill="#4A7CC8"/>
+            <!-- cross badge -->
+            <rect x="74" y="100" width="16" height="16" rx="3" fill="#E8F0FF" stroke="#CBD5E1"/>
+            <path d="M82 104 L82 112 M78 108 L86 108" stroke="#207B19" stroke-width="2" stroke-linecap="round"/>
+            <!-- head -->
+            <circle cx="60" cy="62" r="27" fill="#C8956E"/>
+            <!-- hair -->
+            <path d="M34 58 Q38 30 60 28 Q82 30 86 58 Q86 44 80 38 Q70 20 60 20 Q50 20 40 38 Q34 44 34 58Z" fill="#6B3A2A"/>
+            <!-- eyes -->
+            <circle cx="51" cy="62" r="3" fill="#2A1A0E"/>
+            <circle cx="69" cy="62" r="3" fill="#2A1A0E"/>
+            <!-- blush -->
+            <ellipse cx="45" cy="72" rx="6" ry="4" fill="#E09070" opacity=".4"/>
+            <ellipse cx="75" cy="72" rx="6" ry="4" fill="#E09070" opacity=".4"/>
+            <!-- smile -->
+            <path d="M52 76 Q60 82 68 76" stroke="#9A5030" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- medicine bottle held in right hand -->
+            <rect x="74" y="130" width="22" height="30" rx="5" fill="#2D7A44"/>
+            <rect x="76" y="124" width="18" height="10" rx="3" fill="#1E5E32"/>
+            <rect x="80" y="138" width="10" height="3" rx="1" fill="white" opacity=".6"/>
+            <rect x="80" y="144" width="10" height="3" rx="1" fill="white" opacity=".4"/>
+            <!-- arm holding bottle -->
+            <path d="M80 125 Q85 120 88 130" stroke="#C8956E" stroke-width="8" stroke-linecap="round" fill="none"/>
+            <!-- legs -->
+            <rect x="38" y="170" width="18" height="40" rx="8" fill="#D8DDE8"/>
+            <rect x="62" y="170" width="18" height="40" rx="8" fill="#D8DDE8"/>
+          </svg>
+        </div>
+        <span class="persona-label">Pharmacist</span>
+      </div>
+      <!-- Community health worker (blue scrubs, lanyard) -->
+      <div class="persona">
+        <div class="persona-float">
+          <svg width="clamp(76px,9.5vw,114px)" viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- scrubs -->
+            <rect x="26" y="95" width="68" height="115" rx="14" fill="#2980CE"/>
+            <!-- scrub top v-neck -->
+            <path d="M50 95 L60 114 L70 95" fill="#1A6AB0"/>
+            <!-- pocket -->
+            <rect x="30" y="130" width="22" height="18" rx="4" fill="#1A6AB0"/>
+            <!-- lanyard -->
+            <path d="M60 95 L60 135" stroke="#1A1A2E" stroke-width="2"/>
+            <!-- ID badge -->
+            <rect x="52" y="128" width="16" height="20" rx="3" fill="white" stroke="#CBD5E1"/>
+            <rect x="55" y="133" width="10" height="3" rx="1" fill="#CBD5E1"/>
+            <rect x="55" y="138" width="7" height="3" rx="1" fill="#CBD5E1"/>
+            <!-- head -->
+            <circle cx="60" cy="62" r="27" fill="#8D5524"/>
+            <!-- hair (curly) -->
+            <path d="M34 56 Q38 26 60 24 Q82 26 86 56 Q88 42 82 34 Q74 14 60 14 Q46 14 38 34 Q32 42 34 56Z" fill="#2D1A0E"/>
+            <!-- curly hair sides -->
+            <circle cx="33" cy="66" r="7" fill="#2D1A0E"/>
+            <circle cx="87" cy="66" r="7" fill="#2D1A0E"/>
+            <circle cx="38" cy="80" r="6" fill="#2D1A0E"/>
+            <circle cx="82" cy="80" r="6" fill="#2D1A0E"/>
+            <!-- eyes -->
+            <circle cx="51" cy="62" r="3" fill="#1A0A04"/>
+            <circle cx="69" cy="62" r="3" fill="#1A0A04"/>
+            <!-- blush -->
+            <ellipse cx="44" cy="72" rx="6" ry="3.5" fill="#B07040" opacity=".4"/>
+            <ellipse cx="76" cy="72" rx="6" ry="3.5" fill="#B07040" opacity=".4"/>
+            <!-- smile -->
+            <path d="M52 77 Q60 83 68 77" stroke="#70381A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- legs -->
+            <rect x="38" y="170" width="18" height="40" rx="8" fill="#1A5A9E"/>
+            <rect x="62" y="170" width="18" height="40" rx="8" fill="#1A5A9E"/>
+          </svg>
+        </div>
+        <span class="persona-label">Health Worker</span>
+      </div>
+    </div>
+  </div>
   <div class="stack" style="gap:40px">
     <h1>Clodoc</h1>
     <p class="muted">Clodoc brings patients, doctors, pharmacists, and community health workers together in one connected ecosystem — making healthcare feel less complicated, with experiences simple and familiar enough for everyone to navigate.</p>
   </div>
   <div class="meta">
-    <div><b>Role</b><hr><span class="muted">UXUI Design and Research</span></div>
-    <div><b>Timeline and Status</b><hr><span class="muted">Ongoing for 1.5 years</span></div>
-    <div><b>Team</b><hr><span class="muted">1 Lead designer and<br>2 UXUI designers</span></div>
+    <div style="--meta-i:0"><b>Role</b><hr><span class="muted">UXUI Design and Research</span></div>
+    <div style="--meta-i:1"><b>Timeline and Status</b><hr><span class="muted">Ongoing for 1.5 years</span></div>
+    <div style="--meta-i:2"><b>Team</b><hr><span class="muted">1 Lead designer and<br>2 UXUI designers</span></div>
   </div>
   <div class="nda">
     <svg viewBox="0 0 29 35" fill="none" stroke="#C38A21" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="15" width="23" height="17" rx="3"/><path d="M8 15v-4a6.5 6.5 0 0 1 13 0v4"/></svg>
@@ -37,15 +432,15 @@
 </div>
 
 <section class="band" id="overview" style="margin-top:var(--gap)"><div class="in">
-  <div class="ov"><h2>Overview of Clodoc</h2>
+  <div class="ov cs-section-head"><h2>Overview of Clodoc</h2>
     <div class="txt muted"><p>Clodoc is a healthcare platform connecting doctors, patients, and pharmacies — and the people around them who keep care running.</p>
     <p>It didn't start with a feature list. It started with conversations: with doctors between patients, by observing pharmacy operations, with real people in our neighbourhood, watched and understood up close.</p>
     <p>AI is used only where it genuinely reduces complexity for doctors and patients — never layered on as a feature for its own sake.</p></div></div>
-  <p class="quote">Built to fit how care actually happens, not to force doctors and patients into a workflow that's easier to code than to live with.</p>
+  <p class="quote cs-reveal">Built to fit how care actually happens, not to force doctors and patients into a workflow that's easier to code than to live with.</p>
 </div></section>
 
 <section class="in sec" id="role" style="padding-top:var(--gap)">
-  <header><h2>My Role</h2><p class="muted">Working under the mentorship of our lead designer, my part in Clodoc has grown from understanding the problem to owning a module end-to-end.</p></header>
+  <header class="cs-section-head"><h2>My Role</h2><p class="muted">Working under the mentorship of our lead designer, my part in Clodoc has grown from understanding the problem to owning a module end-to-end.</p></header>
   <hr class="l">
   <ol class="tl">
     <li><h3>Starting point</h3><p class="muted">I started as a junior UX/UI designer, working under the mentorship of our lead designer.</p></li>
@@ -56,27 +451,91 @@
 </section>
 
 <section class="band" id="contributions" style="margin-top:var(--gap)"><div class="in sec">
-  <header><h2>My contributions</h2><p class="muted">What I can share about the work itself, without breaching what's under NDA.</p></header>
+  <header class="cs-section-head"><h2>My contributions</h2><p class="muted">What I can share about the work itself, without breaching what's under NDA.</p></header>
   <div class="cards">
-    <article class="card"><span class="tag">Research</span><h3>Grounding the pharmacy module in real operations</h3>
+    <article class="card" data-reveal="0"><span class="tag">Research</span><h3>Grounding the pharmacy module in real operations</h3>
       <p class="muted">Contributed deep secondary research on pharmacy operations and community health worker systems across India and globally — shaping the design direction and information architecture for Clodoc's pharmacy and community health platform.</p></article>
-    <article class="card"><span class="tag">Design decision</span><h3>A progress tracker for second-opinion cases</h3>
+    <article class="card" data-reveal="1"><span class="tag">Design decision</span><h3>A progress tracker for second-opinion cases</h3>
       <p class="muted">Doctors and patients had no shared view of where a complex second-opinion case stood once it left the queue — creating uncertainty on both sides.</p>
       <p class="sub">Before — no visibility</p><div><span class="chip b">Case submitted, then silence until a decision arrives</span></div>
       <p class="sub">After — staged tracker</p>
-      <div class="fig"><img class="tracker" src="assets/images/clodoc/img2.webp" alt="Staged tracker flow: Case submitted, Medical info submitted, Further details requested, Complete info received, Report in draft, Report finalised, Report sent to patient"></div>
+      <!-- Animated staged tracker replacing img2.webp -->
+      <div class="fig tracker-anim" role="img" aria-label="Staged tracker flow: Case submitted, Medical info submitted, Further details requested, Complete info received, Report in draft, Report finalised, Report sent to patient">
+        <div class="tracker-svg-wrap" id="trackerDiagram">
+          <svg viewBox="0 0 860 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0 0 L10 5 L0 10 Z" fill="#ACA494"/>
+              </marker>
+            </defs>
+            <!-- Row 1: nodes -->
+            <g class="tracker-node tracker-node-reveal" data-step="0"><rect x="8" y="18" width="164" height="44" rx="10"/><text x="90" y="40">Case submitted</text></g>
+            <path class="tracker-arrow tracker-path-reveal" data-step="1" d="M172 40 L202 40"/>
+            <g class="tracker-node tracker-node-reveal" data-step="2"><rect x="202" y="18" width="184" height="44" rx="10"/><text x="294" y="40">Medical info submitted</text></g>
+            <path class="tracker-arrow tracker-path-reveal" data-step="3" d="M386 40 L416 40"/>
+            <g class="tracker-node tracker-node-reveal" data-step="4"><rect x="416" y="18" width="200" height="44" rx="10"/><text x="516" y="40">Further details requested</text></g>
+            <!-- Corner down-right to left -->
+            <path class="tracker-arrow tracker-path-reveal" data-step="5" d="M616 40 Q670 40 670 80 Q670 120 616 120 L572 120"/>
+            <!-- Row 2: nodes (right to left) -->
+            <g class="tracker-node tracker-node-reveal" data-step="6"><rect x="420" y="98" width="188" height="44" rx="10"/><text x="514" y="120">Complete info received</text></g>
+            <path class="tracker-arrow tracker-path-reveal" data-step="7" d="M420 120 L388 120"/>
+            <g class="tracker-node tracker-node-reveal" data-step="8"><rect x="238" y="98" width="148" height="44" rx="10"/><text x="312" y="120">Report in draft</text></g>
+            <path class="tracker-arrow tracker-path-reveal" data-step="9" d="M238 120 L206 120"/>
+            <g class="tracker-node tracker-node-reveal" data-step="10"><rect x="60" y="98" width="144" height="44" rx="10"/><text x="132" y="120">Report finalised</text></g>
+            <!-- Corner down -->
+            <path class="tracker-arrow tracker-path-reveal" data-step="11" d="M60 142 Q60 190 8 190"/>
+            <!-- Final node -->
+            <g class="tracker-node tracker-node-reveal" data-step="12"><rect x="8" y="168" width="170" height="44" rx="10"/><text x="93" y="190">Report sent to patient</text></g>
+          </svg>
+        </div>
+      </div>
       <p class="muted"><b style="color:var(--muted);font-weight:700">Direction:</b> gave doctors and patients a shared, plain-language status — without exposing clinical detail — and reduced how often patients had to ask for updates.</p></article>
-    <article class="card"><span class="tag">Design decision</span><h3>Prescription templates in an AI-assisted chat</h3>
+    <article class="card" data-reveal="2"><span class="tag">Design decision</span><h3>Prescription templates in an AI-assisted chat</h3>
       <p class="muted">Led ideation and design for prescription template generation inside a doctor-facing AI-assisted chat interface, focused on <b>feedforward and feedback cues that a busy, time-constrained doctor could read at a glance.</b></p>
       <p class="sub">Prescription generating flow</p>
-      <div class="fig"><img class="rx" src="assets/images/clodoc/img3.webp" alt="Prescription generating flow: after a prescription is generated, choose a header source. Either select an existing template, or upload a letter head, preview and verify, and save to library. Both paths lead to generate prescription, then preview and share."></div></article>
-    <article class="card"><span class="tag">Ongoing project</span><h3>Pharmacy module in real operations</h3>
+      <!-- Animated Rx flow diagram replacing img3.webp -->
+      <div class="fig rx-flow-wrap" role="img" aria-label="Prescription generating flow: after a prescription is generated, choose a header source. Either select an existing template, or upload a letter head, preview and verify, and save to library. Both paths lead to generate prescription, then preview and share.">
+        <svg class="rx-flow-svg" id="rxDiagram" viewBox="0 0 480 560" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="rx-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0 0 L10 5 L0 10 Z" fill="#ACA494"/>
+            </marker>
+          </defs>
+          <!-- Prescription generated -->
+          <g class="rx-node rx-node-reveal" data-step="0"><rect x="130" y="10" width="220" height="44" rx="10"/><text x="240" y="32">Prescription generated</text></g>
+          <path class="rx-path rx-path-reveal" data-step="1" d="M240 54 L240 80"/>
+          <!-- Choose header source -->
+          <g class="rx-node rx-node-reveal" data-step="2"><rect x="108" y="80" width="264" height="44" rx="10"/><text x="240" y="102">Choose header source</text></g>
+          <!-- Branch paths -->
+          <path class="rx-path rx-path-reveal" data-step="3" d="M200 124 Q130 140 100 170"/>
+          <path class="rx-path rx-path-reveal" data-step="4" d="M280 124 Q350 140 380 170"/>
+          <!-- Left branch: Select existing template -->
+          <g class="rx-node rx-node-reveal" data-step="5"><rect x="10" y="170" width="200" height="44" rx="10"/><text x="110" y="186">Select existing</text><text x="110" y="202">template</text></g>
+          <!-- Right branch: Upload letter head -->
+          <g class="rx-node rx-node-reveal" data-step="6"><rect x="272" y="170" width="180" height="44" rx="10"/><text x="362" y="186">Upload</text><text x="362" y="202">letter head</text></g>
+          <!-- Right sub-path -->
+          <path class="rx-path rx-path-reveal" data-step="7" d="M362 214 L362 244"/>
+          <g class="rx-node rx-node-reveal" data-step="8"><rect x="272" y="244" width="180" height="44" rx="10"/><text x="362" y="266">Preview &amp; verify</text></g>
+          <path class="rx-path rx-path-reveal" data-step="9" d="M362 288 L362 318"/>
+          <g class="rx-node rx-node-reveal" data-step="10"><rect x="272" y="318" width="180" height="44" rx="10"/><text x="362" y="340">Save to library</text></g>
+          <!-- Both paths converge to Generate prescription -->
+          <path class="rx-path rx-path-reveal" data-step="11" d="M110 214 Q110 370 240 380"/>
+          <path class="rx-path rx-path-reveal" data-step="12" d="M362 362 Q362 380 240 380"/>
+          <path class="rx-path rx-path-reveal" data-step="13" d="M240 380 L240 400"/>
+          <!-- Generate prescription -->
+          <g class="rx-node rx-node-reveal" data-step="14"><rect x="108" y="400" width="264" height="44" rx="10"/><text x="240" y="422">Generate prescription</text></g>
+          <path class="rx-path rx-path-reveal" data-step="15" d="M240 444 L240 470"/>
+          <!-- Preview and share -->
+          <g class="rx-node rx-node-reveal" data-step="16"><rect x="130" y="470" width="220" height="44" rx="10"/><text x="240" y="492">Preview and share</text></g>
+        </svg>
+      </div></article>
+    <article class="card" data-reveal="3"><span class="tag">Ongoing project</span><h3>Pharmacy module in real operations</h3>
       <p class="muted">Independently leading the pharmacy module — ideation to final visual design — with mentorship from the lead designer and research-backed decisions at every step.</p></article>
   </div>
 </div></section>
 
 <section class="in" id="learnings" style="padding-top:var(--gap)">
-  <h2>What I've learned — and I'm still learning</h2>
+  <h2 class="cs-section-head">What I've learned — and I'm still learning</h2>
   <div class="learn">
     <div><h3>Nothing starts out perfect</h3><p class="muted">The goal is to get something out and test it, not get it flawless on the first try.</p></div>
     <div><h3>Failures teach more than success does</h3><p class="muted">Collect them, don't fear them.</p></div>
@@ -85,7 +544,7 @@
     <div><h3>Don't take feedback personally</h3><p class="muted">And don't fall in love with your first idea — stay open to it changing.</p></div>
     <div><h3>Ask more questions than feel necessary</h3><p class="muted">The obvious ones are usually worth asking anyway.</p></div>
   </div>
-  <section class="next-portal" id="next-project" aria-label="Next Case Study">
+  <section class="next-portal cs-reveal" id="next-project" aria-label="Next Case Study">
     <div class="next-portal-meta">
       <span class="next-portal-tag">Up Next · Case Study</span>
       <a class="next-portal-back" href="index.html#work">
@@ -125,6 +584,158 @@
 
 <script src="assets/js/case-study.js" defer></script>
 <script src="assets/js/easter-egg.js" defer></script>
+<script>
+/* ══════════════════════════════════════════════════════════════
+   clodoc.html — Inline animation orchestration
+   ══════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ── 1. Page-load entrance ──────────────────────────────────── */
+  if (reduced.matches) {
+    document.body.classList.add('cs-ready');
+  } else {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.body.classList.add('cs-ready');
+    }));
+  }
+
+  /* ── 2. IntersectionObserver for section reveals ─────────────
+     Targets:
+       .cs-section-head  → section headers (h2 + desc)
+       .cs-reveal        → quote, next-portal
+       .card[data-reveal] → contribution cards (staggered)
+  ────────────────────────────────────────────────────────────── */
+  function revealOnce(selector, options) {
+    const els = Array.from(document.querySelectorAll(selector));
+    if (els.length === 0) return;
+
+    if (reduced.matches) {
+      els.forEach(el => el.classList.add('in-view'));
+      return;
+    }
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: options?.rootMargin || '0px 0px -80px 0px' });
+
+    els.forEach(el => obs.observe(el));
+  }
+
+  revealOnce('.cs-section-head', { rootMargin: '0px 0px -60px 0px' });
+  revealOnce('.cs-reveal',       { rootMargin: '0px 0px -40px 0px' });
+  revealOnce('.card[data-reveal]',{ rootMargin: '0px 0px -40px 0px' });
+
+  /* ── 3. Sequential diagram reveals ──────────────────────────── */
+  function animateDiagram(svgRoot, stepDelay) {
+    if (!svgRoot) return;
+    const steps = Array.from(svgRoot.querySelectorAll('[data-step]'))
+      .sort((a, b) => +a.dataset.step - +b.dataset.step);
+
+    if (reduced.matches) {
+      steps.forEach(el => { el.style.opacity = '1'; el.style.strokeDashoffset = '0'; });
+      return;
+    }
+
+    steps.forEach((el, idx) => {
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.strokeDashoffset = '0';
+      }, idx * stepDelay);
+    });
+  }
+
+  function observeDiagram(wrapper, svgRoot, stepDelay) {
+    if (!wrapper || !svgRoot) return;
+    let fired = false;
+    const obs = new IntersectionObserver(entries => {
+      if (fired) return;
+      if (entries[0].isIntersecting) {
+        fired = true;
+        obs.disconnect();
+        animateDiagram(svgRoot, stepDelay);
+      }
+    }, { threshold: 0.1 });
+    obs.observe(wrapper);
+  }
+
+  observeDiagram(document.getElementById('trackerDiagram'), document.getElementById('trackerDiagram'), 120);
+  observeDiagram(document.getElementById('rxDiagram'),      document.getElementById('rxDiagram'),      110);
+
+  /* ── 4. Card 3D perspective tilt + cursor glow ──────────────── */
+  if (!reduced.matches && window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.card').forEach(card => {
+      let rotX = 0, rotY = 0, gX = 50, gY = 50;
+      let tRotX = 0, tRotY = 0, tGX = 50, tGY = 50;
+      let inside = false, raf;
+
+      function lerp(a, b, t) { return a + (b - a) * t; }
+
+      function frame() {
+        rotX = lerp(rotX, tRotX, 0.1);
+        rotY = lerp(rotY, tRotY, 0.1);
+        gX   = lerp(gX,   tGX,   0.1);
+        gY   = lerp(gY,   tGY,   0.1);
+        card.style.transform = `perspective(900px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+        card.style.setProperty('--glow-x', `${gX.toFixed(1)}%`);
+        card.style.setProperty('--glow-y', `${gY.toFixed(1)}%`);
+        if (inside || Math.abs(rotX) > 0.05 || Math.abs(rotY) > 0.05) {
+          raf = requestAnimationFrame(frame);
+        } else {
+          card.style.transform = '';
+        }
+      }
+
+      card.addEventListener('mousemove', e => {
+        inside = true;
+        const r  = card.getBoundingClientRect();
+        const nx = (e.clientX - r.left) / r.width  - 0.5;
+        const ny = (e.clientY - r.top)  / r.height - 0.5;
+        tRotX = -ny * 4;
+        tRotY =  nx * 5;
+        tGX   = (nx + 0.5) * 100;
+        tGY   = (ny + 0.5) * 100;
+        cancelAnimationFrame(raf);
+        frame();
+      }, { passive: true });
+
+      card.addEventListener('mouseleave', () => {
+        inside = false;
+        tRotX = tRotY = 0;
+        tGX = tGY = 50;
+        cancelAnimationFrame(raf);
+        frame();
+      });
+    });
+  }
+
+  /* ── 5. View Transitions / curtain exit for next-portal link ── */
+  if (!reduced.matches) {
+    const hasVT = 'startViewTransition' in document;
+    const portalLink = document.querySelector('.next-portal-card');
+
+    if (portalLink) {
+      portalLink.addEventListener('click', e => {
+        const href = portalLink.getAttribute('href');
+        if (!href || href.startsWith('http') || href.startsWith('#')) return;
+
+        if (hasVT) {
+          e.preventDefault();
+          document.startViewTransition(() => { window.location.href = href; });
+        }
+        // No VT: let native navigation proceed (no jarring curtain on a long-form page)
+      });
+    }
+  }
+
+})();
+</script>
 <!--
   Hey curious developer! 🕵️‍♀️
   Open the DevTools Console (F12) for a little easter egg!

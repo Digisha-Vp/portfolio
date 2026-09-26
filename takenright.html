@@ -4,65 +4,608 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TakenRight — Digisha V P</title>
-<meta name="description" content="TakenRight case study: a medication companion that helps elders confirm what they've taken and get help when unsure.">
+<meta name="description" content="TakenRight case study: a medication companion that helps elders confirm what they've taken, resolve everyday doubts, and stay independent.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Marcellus+SC&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/takenright.css">
+<!-- View Transitions API: smooth cross-document page transitions -->
+<meta name="view-transition" content="same-origin">
 </head>
 <body>
 <div class="reading-progress-bar" id="readingProgress" aria-hidden="true"></div>
 <div class="in">
 <header class="top"><a class="brand" href="index.html" aria-label="Home">Dvp</a><nav><ul><li><a href="index.html" aria-current="page">Work</a></li><li><a href="about.html">About</a></li><li><a href="#">Resume</a></li></ul></nav></header>
+
+<!-- Intro Hero Section -->
 <div class="stack intro" id="intro">
-<img class="hero" src="assets/images/takenright/img1.webp" alt="TakenRight app on a phone" style="background:#F6E1D0">
-<div class="stack" style="gap:40px"><h1>TakenRight</h1><p class="muted">A medication companion that helps elders confirm what they've taken, resolve everyday doubts, and stay independent — while giving families clarity without turning care into monitoring.</p></div>
-<div class="meta"><div><b>Role</b><hr><span class="muted">Product designer - Research to UI</span></div><div><b>Timeline and Status</b><hr><span class="muted">Ongoing, self-initiated</span></div><div><b>Focus</b><hr><span class="muted">Medication management</span></div></div>
-</div></div>
-<section class="band" id="origin" style="margin-top:var(--gap)"><div class="in"><div class="ov"><h2 style="flex-basis:354px">How the idea started, and where it led</h2><div class="txt muted">
-<p>While doing secondary research for Clodoc, I noticed pharmacists play a role that goes beyond simply dispensing medicine. Around the same time, I watched an elder in my own family struggle with a simple but important question: had they already taken their medicine, or not?</p>
-<p>It made me realize that elders living alone need more than reminders — they need certainty, and someone they trust when they're unsure.</p>
-<p>That insight led to TakenRight: a medication platform connecting elders, caregivers, and pharmacists through one simple, supportive experience.</p></div></div></div></section>
-<section class="in sec" id="problem" style="padding-top:var(--gap)"><header><h2>Understanding the problem</h2><p class="muted">The challenge wasn’t only remembering to take medication. It was knowing whether it had already been taken. And solving doubts and uncertainty related to daily medication in elders living alone</p></header>
-<div class="bx"><div><h3>Problem</h3><ul class="d t muted"><li>May remember taking medication but later be unsure whether a dose was already taken.</li><li>Far living family is not sure about their parents' medication</li><li>Medication doubts remain unresolved</li></ul></div>
-<div><h3>The gap</h3><ul class="d t muted"><li>No support for clearing medication doubts</li><li>None are built around a trusted, regional-language pharmacist relationship — the part of this that isn't a reminder problem at all</li><li>Not elder friendly simple flow</li></ul></div></div>
-<p class="quote">How might we help an older person feel sure about their medication, without making them more dependent on family?</p></section>
-<section class="band" id="research" style="margin-top:var(--gap)"><div class="in sec"><h2>Research process &amp; findings</h2><div class="stk">
-<div class="num"><b>01</b><div><h3>Personal observation</h3><p class="muted">Watched an elder in my own family second-guess a dose they'd probably already taken — and quietly let the doubt go rather than ask.</p></div></div>
-<div class="num"><b>02</b><div><h3>Secondary research</h3><p class="muted">Found that reminder and elder-support apps are already a mature category in the US and Europe — a reflection of nuclear households and independent elder living already being the norm there.</p>
-<div class="tb muted" style="margin-top:16px"><div class="r h"><span>App</span><span>Core model</span><span>Gap</span></div>
-<div class="r"><b>Medisafe · <span style="font-weight:400">US</span></b><span>Reminders, dose tracking with alerts to a chosen contact</span><span>No human expert</span></div>
-<div class="r"><b>MyTherapy · <span style="font-weight:400">Germany</span></b><span>Reminders plus a health journal</span><span>No human expert</span></div>
-<div class="r"><b>FamAI · <span style="font-weight:400">India</span></b><span>WhatsApp-native reminders with verbal confirmation, no separate app</span><span>Doesn't resolve the underlying doubt</span></div></div>
-<p class="muted">Most products help people remember to take medication. TakenRight focuses on what happens when they're unsure.</p></div></div>
-<div class="num"><b>03</b><div><h3>Demographic validation</h3><p class="muted">India's traditionally joint-family model is nuclearizing fast, driven by educated children migrating for better jobs and rising chronic conditions among the elderly — confirmed by ageing-survey data.</p>
-<div class="stats"><div><b>36–43%</b><span class="muted">of older adults in India now live without any of their children at home</span><small>LASI / BKPAI, cited in a 2025 peer-reviewed study</small></div><div><b>65%</b><span class="muted">of Kerala's elderly live with a chronic health condition</span><small>Kerala State Planning Board / NSS 2015</small></div><div><b>70%+</b><span class="muted">rise in youth outmigration post-pandemic</span><small>2025 peer-reviewed study, Care Beyond Co-Residence</small></div></div></div></div>
-<div class="num"><b>04</b><div><h3>Primary conversations</h3><p class="muted">Secondary research helped identify the opportunity. I then used informal conversations to understand how elders and adult children currently handle medication uncertainty. The next step is structured validation with more participants and pharmacists.</p>
-<div class="say muted"><div><b>I heard</b><span>"I don't remember if I took it."</span></div><div><b>I observed</b><span>They check the strip, the box, or call family.</span></div><div><b>This meant</b><span>The problem isn't remembering the reminder — it's reconstructing what happened afterward.</span></div></div></div></div>
-</div></div></section>
-<section class="in sec" id="learnings" style="padding-top:var(--gap)"><h2>What I learned</h2><div class="g2">
-<div class="lc"><b>01</b><h3>Reminders aren't enough</h3><p class="muted">The important moment isn't always before taking medication. It can happen afterward, when someone can't remember whether they took it.</p></div>
-<div class="lc"><b>02</b><h3>Family is often the fallback</h3><p class="muted">When unsure, an older adult may rely on their children for confirmation. But family members may not always be available.</p></div>
-<div class="lc"><b>03</b><h3>Medication doubts need an easy answer</h3><p class="muted">Knowing what a medicine is for can reduce uncertainty and help someone make sense of their medication routine.</p></div>
-<div class="lc"><b>04</b><h3>Support should preserve independence</h3><p class="muted">The goal isn't to make caregivers monitor every dose. It is to give older adults enough clarity to handle everyday decisions themselves.</p></div></div></section>
-<section class="band" id="principles" style="margin-top:var(--gap)"><div class="in sec"><header><h2>Three principles shaped the product.</h2><p class="muted">These principles became the filter for the product decisions that followed.</p></header>
-<div class="pr"><div><h3>Clarity</h3><p class="muted">Users should quickly understand what is due, completed or missed.</p></div><div><h3>Simplicity</h3><p class="muted">Medication is part of an existing routine, so interactions should require minimal effort.</p></div><div><h3>Autonomy</h3><p class="muted">Help should be available without making family members part of every medication decision.</p></div></div></div></section>
-<section class="in sec" style="padding-top:var(--gap)"><div class="two"><h2>From texts to screens</h2><p class="muted">Ideated the screens based on the principles - clarity, simplicity and autonomy</p></div><img class="collage" src="assets/images/takenright/img2.webp" alt="Early ideation sketches and wireframes for TakenRight"></section>
-<section class="band" id="screens" style="margin-top:var(--gap)"><div class="in" style="display:flex;flex-direction:column;gap:100px">
-<div class="stack" style="gap:40px"><h2>Designing for two people, not one</h2><p class="muted" style="max-width:646px">TakenRight has two connected experiences: the older adult who needs certainty, and the caregiver who needs reassurance without monitoring.</p></div>
-<div class="stack" style="gap:60px"><h3>For the older adult</h3>
-<div class="ph3"><figure><img src="assets/images/takenright/img3.webp" alt="Today's medication list"><figcaption><b>See today’s medication</b><span class="muted">A plain-language list of what's due and what's already been taken.</span></figcaption></figure><figure><img src="assets/images/takenright/img4.webp" alt="Ask pharmacist voice note screen"><figcaption><b>Get help</b><span class="muted">A voice question to a trusted pharmacist when the answer isn't clear.</span></figcaption></figure><figure><img src="assets/images/takenright/img5.webp" alt="Know your medicine screen"><figcaption><b>Know your medicine</b><span class="muted">Answers to “Why am I taking this?” in Malayalam, read aloud if needed.</span></figcaption></figure></div></div>
-<div class="stack" style="gap:60px"><div class="stack" style="gap:40px"><h3>For the caregiver</h3><p class="muted" style="max-width:646px">The caregiver shouldn't need to manage every dose. They need enough visibility to know: “Is everything generally on track?”</p></div>
-<div class="ph3"><figure><img src="assets/images/takenright/img6.webp" alt="Parents' medication overview"><figcaption><b>See medication of parents</b><span class="muted">Medication overview — a parent's status at a glance, with anything unconfirmed called out.</span></figcaption></figure><figure><img src="assets/images/takenright/img7.webp" alt="Caregiver check-in screen"><figcaption><b>Check whenever</b><span class="muted">Check when needed — designed for occasional reassurance, not daily monitoring.</span></figcaption></figure><figure><img src="assets/images/takenright/img8.webp" alt="Add medication screen"><figcaption><b>Add medicine easily</b><span class="muted">Add medication — set up or update a parent's medicine list remotely.</span></figcaption></figure></div></div></div></section>
-<section style="padding-top:var(--gap)"><h2 class="cnt in" style="margin-bottom:60px">Simple flow for better experience</h2><div class="marq" aria-label="TakenRight screens, moving slowly from right to left"><div class="mt"><div class="set"><img src="assets/images/takenright/img9.webp" alt="Welcome to TakenRight onboarding screen" width="500" height="1086"><img src="assets/images/takenright/img10.webp" alt="Let's get you started sign-up screen" width="500" height="1086"><img src="assets/images/takenright/img11.webp" alt="Confirm you have permission screen" width="500" height="1086"><img src="assets/images/takenright/img12.webp" alt="Taken history screen with weekly confirmation grid" width="500" height="1112"><img src="assets/images/takenright/img13.webp" alt="Active medicines detail screen" width="500" height="1086"><img src="assets/images/takenright/img14.webp" alt="Add medicine screen, step 1 of 5" width="500" height="1086"><img src="assets/images/takenright/img15.webp" alt="Type and shape screen, step 2 of 5" width="500" height="1086"><img src="assets/images/takenright/img16.webp" alt="Appearance screen, step 3 of 5" width="500" height="1086"><img src="assets/images/takenright/img17.webp" alt="Know your medicine screen in Malayalam" width="500" height="1086"><img src="assets/images/takenright/img18.webp" alt="Ask pharmacist screen with hold to record" width="500" height="1086"><img src="assets/images/takenright/img19.webp" alt="Recording a voice note to the pharmacist" width="500" height="1086"><img src="assets/images/takenright/img20.webp" alt="Reply from the pharmacist" width="500" height="1086"><img src="assets/images/takenright/img21.webp" alt="Chat history screen" width="500" height="1086"><img src="assets/images/takenright/img22.webp" alt="Medicines by conditions, sharing with WhatsApp or Gmail" width="500" height="1086"></div></div></div></section>
-<section class="band" id="decisions" style="margin-top:var(--gap)"><div class="in" style="display:flex;flex-direction:column;gap:100px"><h2>Design decisions</h2>
-<div class="stack" style="gap:60px"><h3>Making confirmation harder to get wrong</h3><div class="ba"><figure><img src="assets/images/takenright/img23.webp" alt="Earlier version: single tap changes medication status"><h3>Before</h3><p class="muted">The first version allowed a single tap to change medication status. This made accidental confirmation possible.</p></figure><figure><img src="assets/images/takenright/img24.webp" alt="Updated version with a confirmation step and Edit option"><h3>After</h3><p class="muted">Viewing a status was separated from changing it. The updated flow requires an additional confirmation step and offers an Edit option for recovery — making an important action intentional without complicating the overall flow.</p></figure></div></div>
-<div class="stack" style="gap:60px"><h3>Making incomplete medication status obvious</h3><div class="ba"><figure><img src="assets/images/takenright/img25.webp" alt="Earlier version: two medicines shown together"><h3>Before</h3><p class="muted">When two medicines were shown together, testers weren't always sure which one was still unconfirmed.</p></figure><figure><img src="assets/images/takenright/img26.webp" alt="Updated version naming the unconfirmed medicine"><h3>After</h3><p class="muted">The unconfirmed medicine was named explicitly, and the visual distinction between confirmed and incomplete states was strengthened — reducing the need for users to interpret status themselves.</p></figure></div></div></div></section>
-<section class="in stk" id="takeaways" style="padding-top:var(--gap)"><h2>Takeaways</h2><div class="stack muted" style="gap:16px"><p>People don't always need another reminder. Sometimes they need certainty after the reminder.</p><p>That changed the product from a simple reminder tool into a companion focused on:</p><ul class="d t"><li>Knowing what's taken.</li><li>Understanding the medication.</li><li>Getting help when unsure.</li></ul></div>
-<div class="stack" style="gap:24px"><h3 style="font-weight:800">The trusted-help model is still an open question</h3><ul class="d muted"><li>Next: validating the pharmacist trust model with real conversations, and exploring the physical pill-organizer idea I've deliberately kept out of this core story.</li></ul></div></section>
-<section class="band" style="margin-top:var(--gap)"><div class="in"><div class="cl"><p class="muted">TakenRight started as a reminder app. It became a product about certainty.</p><p class="big">Know what's taken. Understand why. Ask when you're unsure.</p><p style="font-size:16px;color:#8C4D2E">TakenRight</p></div></div></section>
+  <!-- Interactive Hero Stage with Floating Ambient Badges & Perspective Switcher -->
+  <div class="hero-stage-wrap" id="heroStageWrap">
+    <div class="hero-stage">
+      <img class="hero hero-float" id="heroPhoneImg" src="assets/images/takenright/img1.webp" alt="TakenRight app on a phone showing medication status" style="background:#F6E1D0">
+      
+      <!-- Ambient Insight Badges -->
+      <div class="hero-badge badge-elder" id="badgeElder" data-perspective="elder" role="button" tabindex="0" aria-label="Elder perspective: Morning dose confirmed at 8:15 AM">
+        <div class="badge-icon-wrap">
+          <span class="pulse-indicator"></span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#207B19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="badge-copy">
+          <span class="badge-tag">Elder Certainty · 8:15 AM</span>
+          <b>Morning Dose Confirmed</b>
+          <span class="badge-sub">"Metformin 500mg taken with warm water"</span>
+        </div>
+      </div>
+
+      <div class="hero-badge badge-caregiver" id="badgeCaregiver" data-perspective="caregiver" role="button" tabindex="0" aria-label="Caregiver perspective: Peaceful update, no calls needed">
+        <div class="badge-icon-wrap bg-blue">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#394FBA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="badge-copy">
+          <span class="badge-tag blue">Family Reassurance</span>
+          <b>Peace of mind without monitoring</b>
+          <span class="badge-sub">"No anxious phone calls needed today"</span>
+        </div>
+      </div>
+
+      <div class="hero-badge badge-pharma" id="badgePharma" data-perspective="pharmacist" role="button" tabindex="0" aria-label="Pharmacist perspective: Voice note in Malayalam">
+        <div class="badge-icon-wrap bg-warm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <div class="badge-copy">
+          <span class="badge-tag warm">Trusted Pharmacist</span>
+          <b>Voice Note in Malayalam</b>
+          <span class="badge-sub">"കുഴപ്പമില്ല, ഭക്ഷണത്തിന് ശേഷം കഴിച്ചാൽ മതി"</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perspective Interactive Switcher -->
+    <div class="hero-interactive-bar" aria-label="Interactive perspective preview">
+      <span class="hero-bar-label">Explore perspectives:</span>
+      <div class="hero-bar-toggles" role="tablist">
+        <button class="hero-tab-btn active" data-perspective="all" type="button">🌟 All Roles</button>
+        <button class="hero-tab-btn" data-perspective="elder" type="button">👴 Older Adult</button>
+        <button class="hero-tab-btn" data-perspective="caregiver" type="button">👨‍👧 Caregiver</button>
+        <button class="hero-tab-btn" data-perspective="pharmacist" type="button">💊 Pharmacist</button>
+      </div>
+      <div class="hero-perspective-note" id="heroPerspectiveNote" aria-live="polite">
+        Showing how TakenRight connects all 3 roles into one supportive, non-intrusive medication experience.
+      </div>
+    </div>
+  </div>
+
+  <div class="stack tr-head" style="gap:40px">
+    <h1>TakenRight</h1>
+    <p class="muted">A medication companion that helps elders confirm what they've taken, resolve everyday doubts, and stay independent — while giving families clarity without turning care into monitoring.</p>
+  </div>
+
+  <div class="meta tr-stagger">
+    <div style="--meta-i:0;"><b>Role</b><hr><span class="muted">Product designer - Research to UI</span></div>
+    <div style="--meta-i:1;"><b>Timeline and Status</b><hr><span class="muted">Ongoing, self-initiated</span></div>
+    <div style="--meta-i:2;"><b>Focus</b><hr><span class="muted">Medication management</span></div>
+  </div>
+</div>
+</div>
+
+<!-- Section: Origin -->
+<section class="band" id="origin" style="margin-top:var(--gap)">
+  <div class="in">
+    <div class="ov">
+      <h2 class="tr-head" style="flex-basis:354px">How the idea started, and where it led</h2>
+      <div class="txt muted tr-reveal">
+        <p>While doing secondary research for Clodoc, I noticed pharmacists play a role that goes beyond simply dispensing medicine. Around the same time, I watched an elder in my own family struggle with a simple but important question: had they already taken their medicine, or not?</p>
+        <p>It made me realize that elders living alone need more than reminders — they need certainty, and someone they trust when they're unsure.</p>
+        <p>That insight led to TakenRight: a medication platform connecting elders, caregivers, and pharmacists through one simple, supportive experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Problem -->
+<section class="in sec" id="problem" style="padding-top:var(--gap)">
+  <header class="tr-head">
+    <h2>Understanding the problem</h2>
+    <p class="muted">The challenge wasn’t only remembering to take medication. It was knowing whether it had already been taken. And solving doubts and uncertainty related to daily medication in elders living alone</p>
+  </header>
+  <div class="bx tr-stagger">
+    <div>
+      <h3>Problem</h3>
+      <ul class="d t muted">
+        <li>May remember taking medication but later be unsure whether a dose was already taken.</li>
+        <li>Far living family is not sure about their parents' medication</li>
+        <li>Medication doubts remain unresolved</li>
+      </ul>
+    </div>
+    <div>
+      <h3>The gap</h3>
+      <ul class="d t muted">
+        <li>No support for clearing medication doubts</li>
+        <li>None are built around a trusted, regional-language pharmacist relationship — the part of this that isn't a reminder problem at all</li>
+        <li>Not elder friendly simple flow</li>
+      </ul>
+    </div>
+  </div>
+  <p class="quote tr-reveal">How might we help an older person feel sure about their medication, without making them more dependent on family?</p>
+</section>
+
+<!-- Section: Research -->
+<section class="band" id="research" style="margin-top:var(--gap)">
+  <div class="in sec">
+    <h2 class="tr-head">Research process &amp; findings</h2>
+    <div class="stk">
+      <div class="num tr-reveal">
+        <b>01</b>
+        <div>
+          <h3>Personal observation</h3>
+          <p class="muted">Watched an elder in my own family second-guess a dose they'd probably already taken — and quietly let the doubt go rather than ask.</p>
+        </div>
+      </div>
+      <div class="num tr-reveal">
+        <b>02</b>
+        <div>
+          <h3>Secondary research</h3>
+          <p class="muted">Found that reminder and elder-support apps are already a mature category in the US and Europe — a reflection of nuclear households and independent elder living already being the norm there.</p>
+          <div class="tb muted" style="margin-top:16px">
+            <div class="r h"><span>App</span><span>Core model</span><span>Gap</span></div>
+            <div class="r"><b>Medisafe · <span style="font-weight:400">US</span></b><span>Reminders, dose tracking with alerts to a chosen contact</span><span>No human expert</span></div>
+            <div class="r"><b>MyTherapy · <span style="font-weight:400">Germany</span></b><span>Reminders plus a health journal</span><span>No human expert</span></div>
+            <div class="r"><b>FamAI · <span style="font-weight:400">India</span></b><span>WhatsApp-native reminders with verbal confirmation, no separate app</span><span>Doesn't resolve the underlying doubt</span></div>
+          </div>
+          <p class="muted">Most products help people remember to take medication. TakenRight focuses on what happens when they're unsure.</p>
+        </div>
+      </div>
+      <div class="num tr-reveal">
+        <b>03</b>
+        <div>
+          <h3>Demographic validation</h3>
+          <p class="muted">India's traditionally joint-family model is nuclearizing fast, driven by educated children migrating for better jobs and rising chronic conditions among the elderly — confirmed by ageing-survey data.</p>
+          <div class="stats tr-stagger" id="researchStats">
+            <div style="--si:0;">
+              <b class="stat-count" data-target="43" data-prefix="36–" data-suffix="%">36–43%</b>
+              <span class="muted">of older adults in India now live without any of their children at home</span>
+              <small>LASI / BKPAI, cited in a 2025 peer-reviewed study</small>
+            </div>
+            <div style="--si:1;">
+              <b class="stat-count" data-target="65" data-suffix="%">65%</b>
+              <span class="muted">of Kerala's elderly live with a chronic health condition</span>
+              <small>Kerala State Planning Board / NSS 2015</small>
+            </div>
+            <div style="--si:2;">
+              <b class="stat-count" data-target="70" data-suffix="%+">70%+</b>
+              <span class="muted">rise in youth outmigration post-pandemic</span>
+              <small>2025 peer-reviewed study, Care Beyond Co-Residence</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="num tr-reveal">
+        <b>04</b>
+        <div>
+          <h3>Primary conversations</h3>
+          <p class="muted">Secondary research helped identify the opportunity. I then used informal conversations to understand how elders and adult children currently handle medication uncertainty. The next step is structured validation with more participants and pharmacists.</p>
+          <div class="say muted tr-reveal">
+            <div><b>I heard</b><span>"I don't remember if I took it."</span></div>
+            <div><b>I observed</b><span>They check the strip, the box, or call family.</span></div>
+            <div><b>This meant</b><span>The problem isn't remembering the reminder — it's reconstructing what happened afterward.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Learnings -->
+<section class="in sec" id="learnings" style="padding-top:var(--gap)">
+  <h2 class="tr-head">What I learned</h2>
+  <div class="g2 tr-stagger">
+    <div class="lc" style="--si:0;"><b>01</b><h3>Reminders aren't enough</h3><p class="muted">The important moment isn't always before taking medication. It can happen afterward, when someone can't remember whether they took it.</p></div>
+    <div class="lc" style="--si:1;"><b>02</b><h3>Family is often the fallback</h3><p class="muted">When unsure, an older adult may rely on their children for confirmation. But family members may not always be available.</p></div>
+    <div class="lc" style="--si:2;"><b>03</b><h3>Medication doubts need an easy answer</h3><p class="muted">Knowing what a medicine is for can reduce uncertainty and help someone make sense of their medication routine.</p></div>
+    <div class="lc" style="--si:3;"><b>04</b><h3>Support should preserve independence</h3><p class="muted">The goal isn't to make caregivers monitor every dose. It is to give older adults enough clarity to handle everyday decisions themselves.</p></div>
+  </div>
+</section>
+
+<!-- Section: Principles -->
+<section class="band" id="principles" style="margin-top:var(--gap)">
+  <div class="in sec">
+    <header class="tr-head">
+      <h2>Three principles shaped the product.</h2>
+      <p class="muted">These principles became the filter for the product decisions that followed.</p>
+    </header>
+    <div class="pr tr-stagger">
+      <div style="--si:0;"><h3>Clarity</h3><p class="muted">Users should quickly understand what is due, completed or missed.</p></div>
+      <div style="--si:1;"><h3>Simplicity</h3><p class="muted">Medication is part of an existing routine, so interactions should require minimal effort.</p></div>
+      <div style="--si:2;"><h3>Autonomy</h3><p class="muted">Help should be available without making family members part of every medication decision.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Wireframes / Sketches with Interactive Blueprint Explorer -->
+<section class="in sec" style="padding-top:var(--gap)">
+  <div class="two tr-head">
+    <h2>From texts to screens</h2>
+    <p class="muted">Ideated the screens based on the principles - clarity, simplicity and autonomy. Explore the interactive blueprint notes below to inspect key design decisions right on the paper wireframes.</p>
+  </div>
+  
+  <!-- Interactive Sketch Blueprint Explorer -->
+  <div class="sketch-explorer-wrap tr-reveal" id="sketchExplorer">
+    <div class="sketch-stage collage-wrap in-view">
+      <img class="collage" src="assets/images/takenright/img2.webp" alt="Early ideation sketches and wireframes for TakenRight">
+      
+      <!-- Interactive Hotspot Pins on Sketch -->
+      <button class="sketch-pin pin-1 active" type="button" data-pin="1" aria-label="Pin 1: Intentional confirmation flow wireframe" style="top: 26%; left: 22%;">
+        <span class="pin-ring"></span>
+        <span class="pin-dot">1</span>
+        <span class="pin-tooltip"><b>Intentional Confirmation Flow</b>Separating viewing dose from marking done</span>
+      </button>
+
+      <button class="sketch-pin pin-2" type="button" data-pin="2" aria-label="Pin 2: Malayalam voice note wireframe" style="top: 36%; left: 60%;">
+        <span class="pin-ring"></span>
+        <span class="pin-dot">2</span>
+        <span class="pin-tooltip"><b>Voice Note to Pharmacist</b>Removes typing & language hurdles for seniors</span>
+      </button>
+
+      <button class="sketch-pin pin-3" type="button" data-pin="3" aria-label="Pin 3: Caregiver reassurance glance wireframe" style="top: 70%; left: 44%;">
+        <span class="pin-ring"></span>
+        <span class="pin-dot">3</span>
+        <span class="pin-tooltip"><b>Glance, Not Surveillance</b>Reassurance without intrusive monitoring</span>
+      </button>
+    </div>
+
+    <!-- Hotspot Callouts Strip -->
+    <div class="sketch-callouts-strip" id="sketchCallouts">
+      <div class="sketch-callout active" data-callout="1" role="button" tabindex="0">
+        <span class="sc-num">01</span>
+        <div>
+          <b>Flow separation in early sketches</b>
+          <p class="muted">Early paper tests revealed that single-tap checkboxes triggered false confirmations when elders scrolled. The flow was split into a dedicated action step with an explicit undo window.</p>
+        </div>
+      </div>
+      <div class="sketch-callout" data-callout="2" role="button" tabindex="0">
+        <span class="sc-num">02</span>
+        <div>
+          <b>Voice note accessibility</b>
+          <p class="muted">Typing on a small mobile keyboard is stressful for trembling hands. A single press-and-hold voice message in Malayalam mirrors calling a neighborhood pharmacy.</p>
+        </div>
+      </div>
+      <div class="sketch-callout" data-callout="3" role="button" tabindex="0">
+        <span class="sc-num">03</span>
+        <div>
+          <b>Caregiver ambient reassurance</b>
+          <p class="muted">Children living far away worried constantly. Instead of demanding elders check in with phone calls, the app quietly shares daily confirmation status.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Screens with Interactive Micro-Simulators -->
+<section class="band" id="screens" style="margin-top:var(--gap)">
+  <div class="in" style="display:flex;flex-direction:column;gap:100px">
+    <div class="stack tr-head" style="gap:40px">
+      <h2>Designing for two people, not one</h2>
+      <p class="muted" style="max-width:646px">TakenRight has two connected experiences: the older adult who needs certainty, and the caregiver who needs reassurance without monitoring.</p>
+    </div>
+
+    <!-- For the older adult -->
+    <div class="stack" style="gap:60px">
+      <h3 class="tr-head">For the older adult</h3>
+      <div class="ph3 tr-stagger">
+        <!-- Screen 1: Today's medication -->
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img3.webp" alt="Today's medication list" loading="lazy">
+          <figcaption>
+            <b>See today’s medication</b>
+            <span class="muted">A plain-language list of what's due and what's already been taken.</span>
+          </figcaption>
+          
+          <!-- Interactive Micro-Simulator: Dose Confirmation -->
+          <div class="micro-sim dose-sim" id="doseSim">
+            <div class="sim-header">
+              <span class="sim-badge">Interactive Demo</span>
+              <span class="sim-time">Due 8:00 AM</span>
+            </div>
+            <div class="sim-body">
+              <div class="sim-med-row">
+                <div class="sim-pill-icon">💊</div>
+                <div class="sim-med-info">
+                  <b>Metformin 500mg</b>
+                  <span>1 tablet · After breakfast</span>
+                </div>
+              </div>
+              <button class="sim-confirm-btn" id="simConfirmBtn" type="button">
+                <span class="btn-check">✓</span>
+                <span class="btn-text">Confirm Dose Taken</span>
+              </button>
+            </div>
+            <div class="sim-feedback hidden" id="simFeedback" aria-live="polite">
+              <span>✓ Confirmed at 8:05 AM</span>
+              <button class="sim-undo-btn" id="simUndoBtn" type="button">Undo</button>
+            </div>
+          </div>
+        </figure>
+
+        <!-- Screen 2: Ask pharmacist voice note -->
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img4.webp" alt="Ask pharmacist voice note screen" loading="lazy">
+          <figcaption>
+            <b>Get help</b>
+            <span class="muted">A voice question to a trusted pharmacist when the answer isn't clear.</span>
+          </figcaption>
+
+          <!-- Interactive Micro-Simulator: Voice Note -->
+          <div class="micro-sim voice-sim" id="voiceSim">
+            <div class="sim-header">
+              <span class="sim-badge warm">Voice Note Demo</span>
+              <span class="sim-tag">Malayalam ⇄ English</span>
+            </div>
+            <div class="voice-card">
+              <div class="voice-speaker-row">
+                <div class="voice-avatar elder">👴</div>
+                <div class="voice-bubble">
+                  <p class="voice-quote">"ഭക്ഷണത്തിന് മുമ്പാണോ ശേഷമാണോ ഇത് കഴിക്കേണ്ടത്?"</p>
+                  <span class="voice-trans">"Should I take this before or after meals?"</span>
+                </div>
+              </div>
+              <div class="voice-wave-wrap">
+                <div class="wave-bars" id="voiceWaveBars">
+                  <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                  <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
+                <button class="voice-play-btn" id="voicePlayBtn" type="button" aria-label="Play simulated pharmacist reply">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span class="play-text">Hear Pharmacist</span>
+                </button>
+              </div>
+              <div class="voice-response hidden" id="voiceResponse">
+                <div class="voice-speaker-row pharma">
+                  <div class="voice-avatar pharma">💊</div>
+                  <div class="voice-bubble pharma">
+                    <p class="voice-quote">"ഭക്ഷണത്തിന് ശേഷം 15 മിനിറ്റ് കഴിഞ്ഞ് കഴിച്ചാൽ മതി കേട്ടോ."</p>
+                    <span class="voice-trans">"Take it 15 minutes after food with warm water."</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <!-- Screen 3: Know your medicine -->
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img5.webp" alt="Know your medicine screen" loading="lazy">
+          <figcaption>
+            <b>Know your medicine</b>
+            <span class="muted">Answers to “Why am I taking this?” in Malayalam, read aloud if needed.</span>
+          </figcaption>
+
+          <!-- Interactive Micro-Simulator: Bilingual Speech Reassurance -->
+          <div class="micro-sim lang-sim" id="langSim">
+            <div class="sim-header">
+              <span class="sim-badge blue">Plain Language</span>
+              <div class="lang-toggle-btns" role="tablist">
+                <button class="lang-tab-btn active" data-lang="ml" type="button">മലയാളം</button>
+                <button class="lang-tab-btn" data-lang="en" type="button">English</button>
+              </div>
+            </div>
+            <div class="lang-card-content">
+              <div class="lang-ml-view" id="langMlView">
+                <b>എന്തിനാണ് ഈ മരുന്ന്?</b>
+                <p>"രക്തത്തിലെ പഞ്ചസാരയുടെ അളവ് നിയന്ത്രിക്കാനും ക്ഷീണം കുറയ്ക്കാനും സഹായിക്കുന്നു."</p>
+                <div class="read-aloud-row">
+                  <span class="read-speaker-icon">🔊</span>
+                  <span>വായിച്ചു കേൾക്കാം (Read aloud ready)</span>
+                </div>
+              </div>
+              <div class="lang-en-view hidden" id="langEnView">
+                <b>Why am I taking this?</b>
+                <p>"Helps keep blood sugar balanced after breakfast and prevents morning fatigue."</p>
+                <div class="read-aloud-row">
+                  <span class="read-speaker-icon">🔊</span>
+                  <span>Audio text-to-speech assistant</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <!-- For the caregiver -->
+    <div class="stack" style="gap:60px">
+      <div class="stack tr-head" style="gap:40px">
+        <h3>For the caregiver</h3>
+        <p class="muted" style="max-width:646px">The caregiver shouldn't need to manage every dose. They need enough visibility to know: “Is everything generally on track?”</p>
+      </div>
+      <div class="ph3 tr-stagger">
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img6.webp" alt="Parents' medication overview" loading="lazy">
+          <figcaption>
+            <b>See medication of parents</b>
+            <span class="muted">Medication overview — a parent's status at a glance, with anything unconfirmed called out.</span>
+          </figcaption>
+        </figure>
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img7.webp" alt="Caregiver check-in screen" loading="lazy">
+          <figcaption>
+            <b>Check whenever</b>
+            <span class="muted">Check when needed — designed for occasional reassurance, not daily monitoring.</span>
+          </figcaption>
+        </figure>
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img8.webp" alt="Add medication screen" loading="lazy">
+          <figcaption>
+            <b>Add medicine easily</b>
+            <span class="muted">Add medication — set up or update a parent's medicine list remotely.</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Caregiver Reassurance Glance Bar -->
+      <div class="caregiver-glance-bar tr-reveal" id="caregiverGlanceBar">
+        <div class="cgb-icon">🌿</div>
+        <div class="cgb-content">
+          <b>Caregiver's View · Remote Visibility Without Hovering</b>
+          <p class="muted">Adult children living in distant cities can check in without feeling like they are hovering. One glance confirms: <i>"Amma's morning dose taken at 8:15 AM ✓"</i>. If an unconfirmed dose occurs, the app prompts gently before disturbing family.</p>
+        </div>
+        <div class="cgb-status-pill">
+          <span class="cg-dot"></span>
+          <span>Morning Confirmed ✓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Screen Marquee Flow with Filter Controls & Inspector -->
+<section style="padding-top:var(--gap)">
+  <h2 class="cnt in tr-head" style="margin-bottom:24px">Simple flow for better experience</h2>
+  
+  <!-- Marquee Filter Tabs & Guidance -->
+  <div class="marq-controls-wrap in tr-reveal">
+    <div class="marq-filters" role="tablist" aria-label="Filter screens by user journey phase">
+      <button class="marq-filter-btn active" data-filter="all" type="button">All 14 Screens</button>
+      <button class="marq-filter-btn" data-filter="onboarding" type="button">1. Onboarding &amp; Setup</button>
+      <button class="marq-filter-btn" data-filter="routine" type="button">2. Daily Routine &amp; History</button>
+      <button class="marq-filter-btn" data-filter="addmed" type="button">3. Add Medicine (Step 1-3)</button>
+      <button class="marq-filter-btn" data-filter="pharmacist" type="button">4. Pharmacist &amp; Voice Chat</button>
+      <button class="marq-filter-btn" data-filter="sharing" type="button">5. Family &amp; Condition Sharing</button>
+    </div>
+    <div class="marq-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span>Drag to scrub · Scroll to accelerate · Click any screen to zoom</span>
+    </div>
+  </div>
+
+  <div class="marq" aria-label="TakenRight screens moving continuously. Scrub or click to inspect.">
+    <div class="mt">
+      <div class="set">
+        <img src="assets/images/takenright/img9.webp" alt="Welcome to TakenRight onboarding screen" width="500" height="1086" data-category="onboarding" data-idx="1" data-title="Welcome to TakenRight" data-desc="Gentle, welcoming onboarding screen introducing the simple medication companion for elders and families.">
+        <img src="assets/images/takenright/img10.webp" alt="Let's get you started sign-up screen" width="500" height="1086" data-category="onboarding" data-idx="2" data-title="Get Started Sign-Up" data-desc="Minimal mobile phone number verification without requiring passwords or complex email authentication.">
+        <img src="assets/images/takenright/img11.webp" alt="Confirm you have permission screen" width="500" height="1086" data-category="onboarding" data-idx="3" data-title="Caregiver Permission" data-desc="Explicit, dignified permission confirmation ensuring mutual respect between parents and adult children.">
+        <img src="assets/images/takenright/img12.webp" alt="Taken history screen with weekly confirmation grid" width="500" height="1112" data-category="routine" data-idx="4" data-title="Weekly Taken History" data-desc="High-contrast weekly calendar view showing confirmed doses, morning/night status, and clear adherence peace of mind.">
+        <img src="assets/images/takenright/img13.webp" alt="Active medicines detail screen" width="500" height="1086" data-category="routine" data-idx="5" data-title="Active Medicines Overview" data-desc="Comprehensive list of current prescriptions categorized by morning, afternoon, and night timing.">
+        <img src="assets/images/takenright/img14.webp" alt="Add medicine screen, step 1 of 5" width="500" height="1086" data-category="addmed" data-idx="6" data-title="Add Medicine · Step 1" data-desc="Search or speak medicine name with autofill suggestions for common Indian and regional brand formulations.">
+        <img src="assets/images/takenright/img15.webp" alt="Type and shape screen, step 2 of 5" width="500" height="1086" data-category="addmed" data-idx="7" data-title="Pill Shape &amp; Type · Step 2" data-desc="Visual selector for tablets, capsules, liquids, and drops so elders recognize their medicine by shape.">
+        <img src="assets/images/takenright/img16.webp" alt="Appearance screen, step 3 of 5" width="500" height="1086" data-category="addmed" data-idx="8" data-title="Color &amp; Markings · Step 3" data-desc="Color picker and imprint selector matching physical medicine packaging to prevent confusion.">
+        <img src="assets/images/takenright/img17.webp" alt="Know your medicine screen in Malayalam" width="500" height="1086" data-category="pharmacist" data-idx="9" data-title="Know Your Medicine in Malayalam" data-desc="Plain-language regional medical explanation with text-to-speech audio pronunciation.">
+        <img src="assets/images/takenright/img18.webp" alt="Ask pharmacist screen with hold to record" width="500" height="1086" data-category="pharmacist" data-idx="10" data-title="Ask Pharmacist · Voice Note" data-desc="Single press-and-hold voice message to your neighborhood pharmacist, eliminating keypad friction.">
+        <img src="assets/images/takenright/img19.webp" alt="Recording a voice note to the pharmacist" width="500" height="1086" data-category="pharmacist" data-idx="11" data-title="Active Voice Recording" data-desc="Clear waveform animation and timer with simple 'Send' and 'Cancel' touch targets.">
+        <img src="assets/images/takenright/img20.webp" alt="Reply from the pharmacist" width="500" height="1086" data-category="pharmacist" data-idx="12" data-title="Pharmacist Audio Response" data-desc="Direct regional audio answer from trusted pharmacist Manoj with written summary.">
+        <img src="assets/images/takenright/img21.webp" alt="Chat history screen" width="500" height="1086" data-category="pharmacist" data-idx="13" data-title="Consultation History" data-desc="Archived voice notes and prescriptions organized for quick reference during doctor visits.">
+        <img src="assets/images/takenright/img22.webp" alt="Medicines by conditions, sharing with WhatsApp or Gmail" width="500" height="1086" data-category="sharing" data-idx="14" data-title="Condition Sharing &amp; Export" data-desc="One-tap sharing via WhatsApp or PDF export to share complete medication routines with family doctors.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Design Decisions with Interactive Sandboxes -->
+<section class="band" id="decisions" style="margin-top:var(--gap)">
+  <div class="in" style="display:flex;flex-direction:column;gap:100px">
+    <h2 class="tr-head">Design decisions</h2>
+
+    <!-- Decision 1 -->
+    <div class="stack" style="gap:40px">
+      <div class="tr-head">
+        <h3>Making confirmation harder to get wrong</h3>
+      </div>
+      <div class="ba tr-stagger">
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img23.webp" alt="Earlier version: single tap changes medication status">
+          <h3>Before</h3>
+          <p class="muted">The first version allowed a single tap to change medication status. This made accidental confirmation possible during scrolling or casual inspection.</p>
+        </figure>
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img24.webp" alt="Updated version with a confirmation step and Edit option">
+          <h3>After</h3>
+          <p class="muted">Viewing a status was separated from changing it. The updated flow requires an intentional confirmation step and offers an Edit option for recovery — making an important action deliberate without complicating the flow.</p>
+        </figure>
+      </div>
+
+      <!-- Interactive Decision Sandbox 1 -->
+      <div class="decision-sandbox tr-reveal" id="decisionSandbox1">
+        <div class="ds-header">
+          <span class="ds-title">⚡ Interactive Test: Single Tap vs 2-Step Confirmation</span>
+          <div class="ds-toggle-btns" role="tablist">
+            <button class="ds-toggle-btn active" data-flow="after" type="button">✅ New Intentional Flow</button>
+            <button class="ds-toggle-btn" data-flow="before" type="button">❌ Old Single-Tap</button>
+          </div>
+        </div>
+        <div class="ds-interactive-zone" id="dsZone1">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Decision 2 -->
+    <div class="stack" style="gap:40px">
+      <div class="tr-head">
+        <h3>Making incomplete medication status obvious</h3>
+      </div>
+      <div class="ba tr-stagger">
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img25.webp" alt="Earlier version: two medicines shown together">
+          <h3>Before</h3>
+          <p class="muted">When two medicines were shown together, testers weren't always sure which one was still unconfirmed.</p>
+        </figure>
+        <figure class="card-tilt">
+          <img src="assets/images/takenright/img26.webp" alt="Updated version naming the unconfirmed medicine">
+          <h3>After</h3>
+          <p class="muted">The unconfirmed medicine was named explicitly, and the visual distinction between confirmed and incomplete states was strengthened — reducing the need for users to interpret status themselves.</p>
+        </figure>
+      </div>
+
+      <!-- Interactive Decision Sandbox 2 -->
+      <div class="decision-sandbox tr-reveal" id="decisionSandbox2">
+        <div class="ds-header">
+          <span class="ds-title">🔍 Visual Status Distinction Comparison</span>
+          <div class="ds-toggle-btns" role="tablist">
+            <button class="ds-toggle-btn active" data-flow="after" type="button">✅ Explicit Named Status</button>
+            <button class="ds-toggle-btn" data-flow="before" type="button">❌ Ambiguous Grouping</button>
+          </div>
+        </div>
+        <div class="ds-interactive-zone" id="dsZone2">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Takeaways -->
+<section class="in stk" id="takeaways" style="padding-top:var(--gap)">
+  <h2 class="tr-head">Takeaways</h2>
+  <div class="stack muted tr-reveal" style="gap:16px">
+    <p>People don't always need another reminder. Sometimes they need certainty after the reminder.</p>
+    <p>That changed the product from a simple reminder tool into a companion focused on:</p>
+    <ul class="d t">
+      <li>Knowing what's taken.</li>
+      <li>Understanding the medication.</li>
+      <li>Getting help when unsure.</li>
+    </ul>
+  </div>
+  <div class="stack tr-reveal" style="gap:24px">
+    <h3 style="font-weight:800">The trusted-help model is still an open question</h3>
+    <ul class="d muted">
+      <li>Next: validating the pharmacist trust model with real conversations, and exploring the physical pill-organizer idea I've deliberately kept out of this core story.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Closing Manifesto Band -->
+<section class="band" style="margin-top:var(--gap)">
+  <div class="in">
+    <div class="cl tr-reveal">
+      <p class="muted">TakenRight started as a reminder app. It became a product about certainty.</p>
+      <p class="big">Know what's taken. Understand why. Ask when you're unsure.</p>
+      <p style="font-size:16px;color:#8C4D2E">TakenRight</p>
+    </div>
+  </div>
+</section>
+
+<!-- Next Project Portal -->
 <div class="in">
-  <section class="next-portal" id="next-project" aria-label="Next Case Study">
+  <section class="next-portal tr-reveal" id="next-project" aria-label="Next Case Study">
     <div class="next-portal-meta">
       <span class="next-portal-tag">Up Next · Case Study</span>
       <a class="next-portal-back" href="clodoc.html">
@@ -89,9 +632,11 @@
   </section>
 </div>
 
+<!-- Floating Chapter Navigation Dock -->
 <nav class="chapter-nav-wrap" id="chapterNav" aria-label="Case study chapters">
   <div class="chapter-nav">
     <a href="#intro" class="chapter-btn active" data-target="intro" aria-current="true">Intro</a>
+    <a href="#origin" class="chapter-btn" data-target="origin">Origin</a>
     <a href="#problem" class="chapter-btn" data-target="problem">Problem</a>
     <a href="#research" class="chapter-btn" data-target="research">Research</a>
     <a href="#learnings" class="chapter-btn" data-target="learnings">Learnings</a>
@@ -102,6 +647,27 @@
     <a href="#next-project" class="chapter-btn" data-target="next-project">Next Project</a>
   </div>
 </nav>
+
+<!-- Accessible Image Lightbox Dialog -->
+<dialog class="tr-lightbox-dialog" id="takenrightLightbox" aria-label="Screen inspection lightbox">
+  <div class="lb-content">
+    <div class="lb-header">
+      <div class="lb-title-wrap">
+        <h3 class="lb-title" id="lbTitle">Screen Title</h3>
+        <span class="lb-subtitle" id="lbSubtitle">User Flow Detail</span>
+      </div>
+      <button class="lb-close-btn" id="lbCloseBtn" type="button" aria-label="Close dialog">✕</button>
+    </div>
+    <div class="lb-img-wrap">
+      <img id="lbImg" src="" alt="Zoomed screen preview">
+    </div>
+    <div class="lb-footer">
+      <button class="lb-nav-btn" id="lbPrevBtn" type="button">← Previous Screen</button>
+      <span class="muted" id="lbCounter" style="font-size:12px;font-weight:700;">Screen 1 of 14</span>
+      <button class="lb-nav-btn" id="lbNextBtn" type="button">Next Screen →</button>
+    </div>
+  </div>
+</dialog>
 
 <script src="assets/js/case-study.js" defer></script>
 <script src="assets/js/takenright.js"></script>
